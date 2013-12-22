@@ -3,6 +3,8 @@
 
 Get a stream of node modules depending on a given module.
 
+[![build status](https://secure.travis-ci.org/juliangruber/dependants-stream.png)](http://travis-ci.org/juliangruber/dependants-stream)
+
 ## Example
 
 ```js
