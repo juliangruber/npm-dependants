@@ -1,7 +1,7 @@
 
 # dependants-stream
 
-Get a stream of modules depending on a given module.
+Get a stream of node modules depending on a given module.
 
 ## Example
 

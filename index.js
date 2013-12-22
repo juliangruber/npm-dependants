@@ -10,7 +10,7 @@ var Transform = require('stream').Transform;
 module.exports = dependants;
 
 /**
- * Get modules depending on module `name`.
+ * Get all node modules depending on module `name`.
  *
  *   Request -> Parse -> Out
  *
