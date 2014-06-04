@@ -1,7 +1,8 @@
 var JSONStream = require('JSONStream');
-var http = require('http');
+var http = require('http-https');
 var qs = require('querystring');
 var Transform = require('stream').Transform;
+
 
 /**
  * Expose `dependants`.
