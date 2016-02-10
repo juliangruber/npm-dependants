@@ -36,6 +36,7 @@ function dependants(name, opts) {
   };
   out.destroy = function() {
     req.abort();
+    parse.destroy();
     process.nextTick(function() {
       out.emit('close');
     });
