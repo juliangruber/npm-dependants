@@ -1,7 +1,7 @@
 {
   "name": "dependants-stream",
   "description": "Get dependants of a module on npm",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/juliangruber/dependants-stream.git"
