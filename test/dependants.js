@@ -16,3 +16,18 @@ test('dependants', function(t) {
   });
   stream.on('end', t.ok.bind(t, true));
 });
+
+test('destroy', function(t) {
+  t.plan(2);
+  var stream = dependants('dependants-stream-test-a');
+  stream.destroy();
+  stream.once('close', function() {
+    t.ok(true);
+  });
+  stream.on('data', function() {
+    t.fail();
+  });
+  setTimeout(function() {
+    t.ok(true);
+  }, 3000);
+});

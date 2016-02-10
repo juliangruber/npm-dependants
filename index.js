@@ -34,6 +34,12 @@ function dependants(name, opts) {
   out._transform = function(row, _, done) {
     done(null, row.key[1]);
   };
+  out.destroy = function() {
+    req.abort();
+    process.nextTick(function() {
+      out.emit('close');
+    });
+  };
   
   var req = http.get(url, function(res) {
     if (res.statusCode != 200) {
@@ -48,3 +54,4 @@ function dependants(name, opts) {
   
   return parse.pipe(out);
 }
+

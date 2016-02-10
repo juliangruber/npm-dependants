@@ -23,7 +23,7 @@ dependants('intersect')
 
 ### dependants(name[, opts])
 
-Create a readable stream emitting names of modules depending on module `name`. Overwrite the default registry url with `opts.registry`.
+Create a readable stream emitting names of modules depending on module `name`. Overwrite the default registry url with `opts.registry`. The stream can be `destroy`ed.
 
 ## Installation
 
