@@ -7,6 +7,7 @@
     "url": "git://github.com/juliangruber/npm-dependants.git"
   },
   "scripts": {
+    "release": "np",
     "test": "prettier-standard && standard && tap"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "np": "^5.2.1",
     "prettier-standard": "^16.1.0",
     "standard": "^14.3.1",
     "tap": "^14.10.5"
