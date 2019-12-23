@@ -21,6 +21,10 @@ for await (const dependant of dependants('express')) {
 $ npm install npm-dependants
 ```
 
+## Implementation
+
+Since there is [no reliable api](https://twitter.com/juliangruber/status/1209066065550028801) for querying dependant packages currently, this module scrapes [npmjs.com](https://npmjs.com) - at the risk of npm changing their DOM. If you notice anything breaking, please open an issue 🙇‍♂️.
+
 ## License
 
 MIT
