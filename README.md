@@ -25,10 +25,6 @@ $ npm install npm-dependants
 
 Since there is [no reliable api](https://twitter.com/juliangruber/status/1209066065550028801) for querying dependant packages currently, this module scrapes [npmjs.com](https://npmjs.com) - at the risk of npm changing their DOM. If you notice anything breaking, please open an issue 🙇‍♂️.
 
-## License
-
-MIT
-
 ## Sponsors
 
 This project is [sponsored](https://github.com/sponsors/juliangruber) by [CTO.ai](https://cto.ai/), making it easy for development teams to create and share workflow automations without leaving the command line.
