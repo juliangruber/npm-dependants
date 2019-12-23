@@ -1,33 +1,24 @@
-# dependants-stream
+# npm-dependants
 
-Get a stream of node modules depending on a given module.
+Get dependants of a module on npm.
 
-[![build status](https://secure.travis-ci.org/juliangruber/dependants-stream.png)](http://travis-ci.org/juliangruber/dependants-stream)
-
-## Example
+## Usage
 
 ```js
-var dependants = require('dependants-stream')
+const dependants = require('npm-dependants')
 
-dependants('intersect')
-  .on('data', function (name) {
-    console.log(name)
-  })
-  .on('end', function () {
-    // ...
-  })
+for await (const dependant of dependants('express')) {
+  console.log(dependant)
+  // webpack-dev-server
+  // webpack-bundle-analyzer
+  // ...
+}
 ```
-
-## API
-
-### dependants(name[, opts])
-
-Create a readable stream emitting names of modules depending on module `name`. Overwrite the default registry url with `opts.registry`. The stream can be `destroy`ed.
 
 ## Installation
 
 ```bash
-$ npm install dependants-stream
+$ npm install npm-dependants
 ```
 
 ## License

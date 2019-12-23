@@ -1,45 +1,34 @@
-const JSONStream = require('JSONStream')
-const http = require('http')
-const qs = require('querystring')
-const { Transform } = require('stream')
+const fetch = require('node-fetch')
+const cheerio = require('cheerio')
 
-const dependants = (name, opts = {}) => {
-  var registry = opts.registry || 'http://registry.npmjs.org'
-  var query = qs.stringify({
-    group_level: 2,
-    startkey: '["' + name + '"]',
-    endkey: '["' + name + '",{}]'
-  })
-  var url = registry + '/-/_view/dependedUpon?' + query
+module.exports = name => {
+  const dependants = []
+  let offset = 0
 
-  var out = Transform({ objectMode: true })
-  out._transform = function (row, _, done) {
-    done(null, row.key[1])
-  }
-  out.destroy = function () {
-    req.abort()
-    parse.destroy()
-    process.nextTick(function () {
-      out.emit('close')
+  const next = async () => {
+    const url = `https://npmjs.com/browse/depended/${name}?offset=${offset}`
+    const res = await fetch(url)
+    const html = await res.text()
+    const $ = cheerio.load(html)
+    $('a[href^="/package/"]').each((_, el) => {
+      const dependant = $(el)
+        .attr('href')
+        .slice('/package/'.length)
+      if (dependant !== name) dependants.push(dependant)
     })
+    offset += 36
   }
 
-  var req = http
-    .get(url, function (res) {
-      if (res.statusCode !== 200) {
-        return parse.emit('error', new Error('bad status: ' + res.status))
+  return {
+    [Symbol.asyncIterator]: async function * () {
+      while (true) {
+        if (dependants.length) {
+          yield await dependants.shift()
+        } else {
+          await next()
+          if (!dependants.length) return
+        }
       }
-
-      res.pipe(parse)
-    })
-    .on('error', out.emit.bind(out, 'error'))
-
-  var parse = JSONStream.parse(['rows', true]).on(
-    'error',
-    out.emit.bind(out, 'error')
-  )
-
-  return parse.pipe(out)
+    }
+  }
 }
-
-module.exports = dependants
