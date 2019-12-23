@@ -1,4 +1,3 @@
-
 # dependants-stream
 
 Get a stream of node modules depending on a given module.
@@ -8,15 +7,15 @@ Get a stream of node modules depending on a given module.
 ## Example
 
 ```js
-var dependants = require('dependants-stream');
+var dependants = require('dependants-stream')
 
 dependants('intersect')
-  .on('data', function(name) {
-    console.log(name);  
+  .on('data', function (name) {
+    console.log(name)
   })
-  .on('end', function() {
+  .on('end', function () {
     // ...
-  });
+  })
 ```
 
 ## API
@@ -33,4 +32,4 @@ $ npm install dependants-stream
 
 ## License
 
-  MIT
+MIT
