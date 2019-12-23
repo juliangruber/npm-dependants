@@ -1,27 +1,9 @@
-var JSONStream = require('JSONStream')
-var http = require('http')
-var qs = require('querystring')
-var Transform = require('stream').Transform
+const JSONStream = require('JSONStream')
+const http = require('http')
+const qs = require('querystring')
+const { Transform } = require('stream')
 
-/**
- * Expose `dependants`.
- */
-
-module.exports = dependants
-
-/**
- * Get all node modules depending on module `name`.
- *
- *   Request -> Parse -> Out
- *
- * @param {String} name
- * @param {Object=} opts
- * @return {Stream}
- */
-
-function dependants (name, opts) {
-  opts = opts || {}
-
+const dependants = (name, opts = {}) => {
   var registry = opts.registry || 'http://registry.npmjs.org'
   var query = qs.stringify({
     group_level: 2,
@@ -59,3 +41,5 @@ function dependants (name, opts) {
 
   return parse.pipe(out)
 }
+
+module.exports = dependants
