@@ -1,8 +1,8 @@
 # For more info see https://cto.ai/docs/ops-reference
-version: "1"
+version: '1'
 commands:
   - name: npm-dependants:0.1.0
     description: Get dependants of a module on npm..
     public: true
-    sourceCodeURL: "https://github.com/juliangruber/npm-dependants"
+    sourceCodeURL: 'https://github.com/juliangruber/npm-dependants'
     run: node /ops/bin/npm-dependants.js
