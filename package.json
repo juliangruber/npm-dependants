@@ -31,5 +31,8 @@
     "email": "mail@juliangruber.com",
     "url": "http://juliangruber.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "npm-dependants": "bin/npm-dependants.js"
+  }
 }

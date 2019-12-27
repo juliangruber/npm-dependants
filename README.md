@@ -15,6 +15,13 @@ for await (const dependant of dependants('express')) {
 }
 ```
 
+```bash
+$ npx npm-dependants express
+webpack-dev-server
+webpack-bundle-analyzer
+# ...
+```
+
 ## Installation
 
 ```bash
