@@ -4,6 +4,8 @@ Get dependants of a module on npm.
 
 ## Usage
 
+Use the JavaScript API:
+
 ```js
 const dependants = require('npm-dependants')
 
@@ -15,11 +17,20 @@ for await (const dependant of dependants('express')) {
 }
 ```
 
+Use the CLI:
+
 ```bash
 $ npx npm-dependants express
 webpack-dev-server
 webpack-bundle-analyzer
 # ...
+```
+
+Use as an [Op](https://cto.ai/):
+
+```bash
+$ npm install -g @cto.ai/ops && ops account:signup
+$ ops run @juliangruber/npm-dependants brace-expansion
 ```
 
 ## Installation
