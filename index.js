@@ -14,7 +14,9 @@ module.exports = name => {
       const dependant = $(el)
         .attr('href')
         .slice('/package/'.length)
-      if (dependant !== name) dependants.push(dependant)
+      if (dependant !== name && !dependants.includes(dependant)) {
+        dependants.push(dependant)
+      }
     })
     offset += 36
   }
