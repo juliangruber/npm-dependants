@@ -6,4 +6,4 @@ commands:
     public: true
     sdk: '2'
     sourceCodeURL: 'https://github.com/juliangruber/npm-dependants'
-    run: node /ops/bin/npm-dependants.js
+    run: node /ops/bin/ops.js
