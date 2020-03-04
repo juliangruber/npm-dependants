@@ -4,5 +4,6 @@ commands:
   - name: npm-dependants:0.2.1
     description: Get dependants of a module on npm..
     public: true
+    sdk: '2'
     sourceCodeURL: 'https://github.com/juliangruber/npm-dependants'
     run: node /ops/bin/npm-dependants.js

@@ -1,7 +1,7 @@
 ############################
 # Build container
 ############################
-FROM node:10-alpine AS dep
+FROM node:12-alpine AS dep
 
 WORKDIR /ops
 
@@ -14,7 +14,7 @@ ADD . .
 ############################
 # Final container
 ############################
-FROM node:10-alpine
+FROM registry.cto.ai/official_images/node:latest
 
 WORKDIR /ops
 
