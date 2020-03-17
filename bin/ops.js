@@ -12,8 +12,9 @@ const main = async () => {
       default: 'express'
     }
   ])
+
   for await (const dependant of dependants(name)) {
-    console.log(dependant)
+    await ux.print(dependant)
   }
 }
 
