@@ -3,6 +3,7 @@ const cheerio = require('cheerio')
 
 module.exports = name => {
   const dependants = []
+  const visited = new Set()
   let offset = 0
 
   const next = async () => {
@@ -14,8 +15,9 @@ module.exports = name => {
       const dependant = $(el)
         .attr('href')
         .slice('/package/'.length)
-      if (dependant !== name && !dependants.includes(dependant)) {
+      if (dependant !== name && !visited.has(dependant)) {
         dependants.push(dependant)
+        visited.add(dependant)
       }
     })
     offset += 36

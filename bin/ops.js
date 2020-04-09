@@ -10,7 +10,8 @@ const main = async () => {
       name: 'name',
       message: 'Name of the module to search',
       default: 'express'
-    }, {
+    },
+    {
       type: 'input',
       name: 'limit',
       message: 'How many modules to display at most',
